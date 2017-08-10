@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Gabble</title
+      <link rel="stylesheet" href="homepage.css">
+  </head>
+  <body>
+    <nav class="home">
+      <a href="#">Gabble</a><p class="divider">|</p>
+      <a href="creategabble.mustache">Create a new gab</a><p class="divider">|</p>
+      {{#username}}
+      <p class="loggedin">Logged in as {{.}}</p><p class="divider">|</p>
+      {{/username}}
+      <a href="logout.mustache">Log out</a>
+    </nav>
+
+    <div class="messageList">
+      {{#array}}
+          <p><span><strong>{{username}}</strong>:</span><span>{{gab}}</span></p>
+          <p>{{likes}}</p>
+          {{#delete}}
+            <form  action="/delete" method="post">
+              <button type="submit" name="deleteKey" value="{{id}}">Delete</button>
+            </form>
+          {{/delete}}
+           <form action="/likes" method="post">
+             <button type="submit" name="likeButton" value="{{id}}">Like</button>
+           </form>
+      {{/array}}
+    </div>
+  </body>
+</html>

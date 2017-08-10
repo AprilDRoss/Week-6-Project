@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Create Gabble</title>
+    <link rel="stylesheet" href="gabble.css">
+  </head>
+  <body>
+    <nav class="otherpages">
+      <a href="/home">Gabble |</a>
+      <a href ="#">Create a new gab |</a>
+      <!-- {{#username}} -->
+      <p class="username">Logged in as:{{username}} |</p><p class="divider">|</p>
+      <!-- {{/username}} -->
+      <a href="/logout">Log out</a>
+    </nav>
+
+
+    <div class="errors">
+      {{#errors}}
+      {{.}}
+      {{/errors}}
+    </div>
+
+    <form action="/gabble" method="post">
+     <p class="gabbleTitle">Create your Gabble below:</p><br>
+     <input type="string" id="createGabble" name="gabtext" value="" placeholder=" "><br>
+     <br>
+     <button class="submitbutton" type="submit">Submit</button>
+    </form>
+
+  </body>
+</html>
